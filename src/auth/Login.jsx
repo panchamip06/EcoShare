@@ -92,7 +92,7 @@ export default function Login({ onLoginSuccess }) {
                 <div className="social-login-section" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <div className="divider" style={{ width: '100%' }}><span>OR</span></div>
 
-                    <SignInButton mode="modal" signUpForceRedirectUrl="/dashboard" forceRedirectUrl="/dashboard">
+                    <SignInButton signUpForceRedirectUrl="/dashboard" forceRedirectUrl="/dashboard">
                         <button className="btn-google">
                             <img src="https://www.svgrepo.com/show/475656/google-color.svg" className="google-icon" alt="G" />
                             <span>Continue with Clerk (Google)</span>

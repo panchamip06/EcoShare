@@ -5,7 +5,7 @@ const AuthContext = createContext();
 
 // Sanitize API URL: Remove trailing slash if present, then ensure it ends with /api
 const getApiUrl = () => {
-    let url = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+    let url = import.meta.env.VITE_API_URL || 'https://ecoshare-api.onrender.com/api';
     url = url.replace(/\/$/, ''); // Remove trailing slash
     if (!url.endsWith('/api')) url += '/api';
     return url;
