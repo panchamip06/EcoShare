@@ -32,6 +32,13 @@ const connectDB = async () => {
     try {
         await mongoose.connect(process.env.MONGO_URI);
         console.log('MongoDB Connected');
+        // Drop legacy googleId unique index that causes duplicate key errors for new users
+        try {
+            await mongoose.connection.collection('users').dropIndex('googleId_1');
+            console.log('Legacy googleId_1 index dropped successfully.');
+        } catch (idxErr) {
+            // Index might not exist, which is fine
+        }
     } catch (err) {
         console.error('MongoDB Connection Error:', err);
         // Do not exit, allow retry or user to fix env
